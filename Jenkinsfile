@@ -9,6 +9,9 @@ pipeline {
         }
         stage('sonar') {
             steps {
+                script {
+                    scannerHome = tool 'MySonar'// must match the name of an actual scanner installation directory on your Jenkins build agent
+                }
                 withSonarQubeEnv('MySonar') { // Will pick the global server connection you have configured
                   sh "${scannerHome}/bin/sonar-scanner"
                 }
