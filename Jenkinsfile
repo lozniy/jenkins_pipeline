@@ -9,7 +9,7 @@ pipeline {
         }
         stage('sonar') {
             steps {
-                withSonarQubeEnv() { // Will pick the global server connection you have configured
+                withSonarQubeEnv('MySonar') { // Will pick the global server connection you have configured
                   sh './gradlew sonar'
                 }
             }
