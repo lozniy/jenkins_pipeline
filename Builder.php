@@ -37,4 +37,5 @@ class Manager
 //$builder = new SbbolBuilder();
 $builder = new SberIdBuilder;
 $manager = new Manager($builder);
+var_dump($manager);
 $manager->getRequest();
