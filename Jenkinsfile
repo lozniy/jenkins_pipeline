@@ -13,7 +13,11 @@ pipeline {
                     scannerHome = tool 'MySonarScanner'// must match the name of an actual scanner installation directory on your Jenkins build agent
                 }
                 withSonarQubeEnv('MySonar') { // Will pick the global server connection you have configured
-                  sh "${scannerHome}/bin/sonar-scanner"
+                  sh "${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.projectKey=MySonarProgect1 \
+                    -Dsonar.projectName=MySonarProgect1 \
+                    -Dsonar.projectVersion=1.0.0 \
+                    -Dsonar.sources=."
                 }
             }
         }
